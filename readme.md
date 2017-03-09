@@ -8,6 +8,12 @@ So if you, like me, don't have any clue how to understand or use a ColorMatrix t
 
 Just play around with the values to see what happens to the image. Use the presets for examples of what can be done. Use Identity(Reset) to reset to defaults.
 
+## Screnshots 
+![image](./art/screenshot_001.png) 
+![image](./art/screenshot_002.png) 
+![image](./art/screenshot_003.png) 
+![image](./art/screenshot_004.png) 
+
 ### More info
 
 [ColorMatrix - Android Developer Page](https://developer.android.com/reference/android/graphics/ColorMatrix.html)
