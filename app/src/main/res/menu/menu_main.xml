@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.stealthcotper.networktools.MainActivity"
+    >
+  <item
+      android:id="@+id/action_github"
+      android:title="@string/github_page"
+      android:orderInCategory="100"
+      android:icon="@mipmap/ic_action_github"
+      app:showAsAction="always"
+      />
+</menu>

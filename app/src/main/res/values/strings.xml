@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ColourMatrixExample</string>
+    <string name="github_page">Github Page</string>
+    <string name="github_url">https://github.com/stealthcopter/InteractiveColorMatrixDemo</string>
+    <string name="get_code">Get Code</string>
+    <string name="preset">Preset</string>
+</resources>
