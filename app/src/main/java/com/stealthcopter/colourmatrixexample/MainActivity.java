@@ -214,8 +214,11 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
                 e.printStackTrace();
             }
 
+            ColorMatrix saturationMatrix = new ColorMatrix();
+            saturationMatrix.setSaturation(sat);
+
             // Only set saturation if checkbox is ticked
-            matrix.setSaturation(sat);
+            matrix.postConcat(saturationMatrix);
         }
 
         ColorMatrixColorFilter cf = new ColorMatrixColorFilter(matrix);
@@ -252,10 +255,10 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append("\nColorMatrix matrix = new ColorMatrix();\n" + "\n" + "matrix.set(new float[] {\n" + "        ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",\n").append("        ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",\n").append("        ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",\n").append("        ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i]).append("\n").append("});\n").append("\n");
+        sb.append("\nColorMatrix matrix = new ColorMatrix();\n" + "\n" + "matrix.set(new float[] {\n        ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",\n").append("        ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",\n").append("        ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",\n").append("        ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i++]).append(",  ").append(colorMatrix[i]).append("\n").append("});\n").append("\n");
 
         if (saturationCheckbox.isChecked()) {
-            sb.append("\nmatrix.setSaturation(").append(saturation).append(");\n\n");
+            sb.append("\n//Post apply the saturation matrix\nColorMatrix saturationMatrix \n    = new ColorMatrix();\nsaturationMatrix.setSaturation(").append(saturation).append(");\nmatrix.postConcat(saturationMatrix);\n");
         }
 
         sb.append("\nColorMatrixColorFilter cf \n    = new ColorMatrixColorFilter(matrix);\n\nimageView.setColorFilter(cf);");
